@@ -243,6 +243,82 @@ Método CalcularConsumo():
 ```
 Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subclasses.
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
+
+**Resposta:**
+```
+Classe Veiculo
+
+    modelo
+    ano
+
+    Método Construtor(modelo, ano)
+        this.modelo = modelo
+        this.ano = ano
+    Fim Método
+
+    Método CalcularConsumo()
+        retornar "Método a ser implementado pelas subclasses"  # Implementação genérica a ser sobrescrita
+    Fim Método
+Fim Classe
+
+Classe Carro herda Veiculo
+    potencia
+    numeroPortas
+    tipoCombustivel
+    
+    Método Construtor(modelo, ano, potencia, numeroPortas, tipoCombustivel)
+        super(modelo, ano)  # Chama o construtor da classe pai
+        this.potencia = potencia
+        this.numeroPortas = numeroPortas
+        this.tipoCombustivel = tipoCombustivel
+    Fim Método
+    
+    Método CalcularConsumo(quilometragem, litrosConsumidos)  # Sobrescrita do método CalcularConsumo
+        consumo = quilometragem / litrosConsumidos
+        
+        # Ajuste de consumo baseado no tipo de combustível
+        se this.tipoCombustivel = "gasolina" então
+            eficiencia = consumo
+        senão se this.tipoCombustivel = "etanol" então
+            eficiencia = consumo * 0.7  # Etanol é menos eficiente
+        senão se this.tipoCombustivel = "diesel" então
+            eficiencia = consumo * 1.2  # Diesel é mais eficiente
+        senão se this.tipoCombustivel = "híbrido" então
+            eficiencia = consumo * 1.5  # Híbridos são mais eficientes
+        fim se
+        
+        retornar eficiencia
+    Fim Método
+Fim Classe
+
+Classe Moto herda Veiculo
+    # Atributos específicos
+    cilindrada
+    tipoMotor
+    
+    Método Construtor(modelo, ano, cilindrada, tipoMotor)
+        super(modelo, ano)  # Chama o construtor da classe pai
+        this.cilindrada = cilindrada
+        this.tipoMotor = tipoMotor
+    Fim Método
+    
+    # Sobrescrita do método CalcularConsumo
+    Método CalcularConsumo(quilometragem, litrosConsumidos)
+        consumo = quilometragem / litrosConsumidos
+        
+        # Ajuste de consumo baseado na cilindrada
+        se this.cilindrada <= 150 então
+            eficiencia = consumo * 1.3  # Motos pequenas são mais eficientes
+        senão se this.cilindrada <= 500 então
+            eficiencia = consumo * 1.1  # Motos médias
+        senão
+            eficiencia = consumo * 0.9  # Motos grandes são menos eficientes
+        fim se
+        
+        retornar eficiencia
+    Fim Método
+Fim Classe
+```
 ______
 
 **9)** Você é um cientista da NASA e está ajudando no desenvolvimento de um sistema de pouso para sondas espaciais em Marte. Seu objetivo é calcular o tempo necessário para que a sonda reduza sua velocidade até um nível seguro para pouso, considerando uma velocidade inicial de entrada na atmosfera marciana e uma taxa de desaceleração constante causada pelo atrito atmosférico e retrofoguetes.
@@ -256,6 +332,56 @@ Considere a fórumla de atualização velocidade:
     velocidade = velocidadeInicial - desaceleracao * tempo
 ```
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
+
+**Resposta:**
+```
+Algoritmo CalcularTempoPouso
+    # Definir parâmetros iniciais da sonda
+    Ler(velocidadeInicial)       # Velocidade inicial em m/s
+    Ler(velocidadeSegura)        # Velocidade segura para pouso em m/s
+    Ler(desaceleracao)           # Taxa de desaceleração em m/s²
+    Ler(tempoMaximoDescida)      # Tempo máximo permitido para descida em segundos
+    Ler(desaceleracaoMinima)     # Taxa mínima de desaceleração permitida em m/s²
+    
+    # Verificar se a desaceleração é suficiente
+    se desaceleracao < desaceleracaoMinima então
+        Escrever("ALERTA: Taxa de desaceleração abaixo do mínimo seguro!")
+        Escrever("Ajuste os retrofoguetes para aumentar a desaceleração.")
+        retornar
+    fim se
+    
+    # Calcular o tempo necessário para atingir a velocidade segura
+    # Usando a fórmula: velocidade = velocidadeInicial - desaceleracao * tempo
+    # Rearranjando: tempo = (velocidadeInicial - velocidade) / desaceleracao
+    tempoNecessario = (velocidadeInicial - velocidadeSegura) / desaceleracao
+    
+    # Verificar se o tempo necessário excede o tempo máximo permitido
+    se tempoNecessario > tempoMaximoDescida então
+        Escrever("ALERTA: Tempo de descida excede o limite seguro!")
+        Escrever("Tempo necessário: ", tempoNecessario, " segundos")
+        Escrever("Tempo máximo permitido: ", tempoMaximoDescida, " segundos")
+        Escrever("Aumentar a desaceleração ou ajustar a trajetória de entrada.")
+        
+        # Calcular a desaceleração necessária para cumprir o tempo máximo
+        desaceleracaoNecessaria = (velocidadeInicial - velocidadeSegura) / tempoMaximoDescida
+        Escrever("Desaceleração mínima necessária: ", desaceleracaoNecessaria, " m/s²")
+    senão
+        Escrever("Simulação de pouso bem-sucedida!")
+        Escrever("Tempo estimado para atingir velocidade segura: ", tempoNecessario, " segundos")
+        
+        # Calcular a velocidade em intervalos de tempo para monitoramento
+        Escrever("Perfil de desaceleração:")
+        para t de 0 até tempoNecessario passo tempoNecessario/10 faça
+            velocidadeAtual = velocidadeInicial - desaceleracao * t
+            Escrever("Tempo: ", t, " segundos, Velocidade: ", velocidadeAtual, " m/s")
+        fim para
+        
+        Escrever("Distância percorrida durante a desaceleração: ", (velocidadeInicial + velocidadeSegura) * tempoNecessario / 2, " metros")
+    fim se
+    
+    retornar tempoNecessario
+Fim Algoritmo
+```
 ______
 
 **10)** Em um sistema de análise financeira, as operações de investimento de uma empresa podem ser representadas por matrizes, onde cada linha representa um tipo de investimento e cada coluna representa um período de tempo.
@@ -288,3 +414,34 @@ Escrever("Total de investimentos acumulados:")
 ImprimirMatriz(totalInvestimentos)  
 ```
 Agora, implemente a função MultiplicarMatrizesInvestimento(matrizA, matrizB), que multiplica as duas matrizes, simulando o efeito de diferentes fatores de crescimento e impacto financeiro nos investimentos ao longo do tempo.
+
+
+**Resposta:**
+```
+Função MultiplicarMatrizesInvestimento(matrizA, matrizB):
+    # Verifica se as matrizes são compatíveis para multiplicação
+    # O número de colunas da matrizA deve ser igual ao número de linhas da matrizB
+    Se tamanho(matrizA[0]) ≠ tamanho(matrizB) então:
+        Retornar "As matrizes não podem ser multiplicadas. Dimensões incompatíveis."
+    Senão:
+        linhasA <- tamanho(matrizA)
+        colunasA <- tamanho(matrizA[0])
+        colunasB <- tamanho(matrizB[0])
+        
+        # Cria uma nova matriz para armazenar o resultado
+        matrizResultado <- novaMatriz(linhasA, colunasB)
+        
+        # Loop para realizar a multiplicação das matrizes
+        Para i de 0 até linhasA-1 faça:
+            Para j de 0 até colunasB-1 faça:
+                matrizResultado[i][j] <- 0
+                
+                # Calcula o produto escalar da linha i da matrizA com a coluna j da matrizB
+                Para k de 0 até colunasA-1 faça:
+                    matrizResultado[i][j] <- matrizResultado[i][j] + (matrizA[i][k] * matrizB[k][j])
+                
+        Retornar matrizResultado
+
+# O resultado mostra o valor projetado para cada tipo de investimento (linhas) em cada período de tempo (colunas), considerando os fatores de impacto.
+```
+
