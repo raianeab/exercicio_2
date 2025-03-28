@@ -45,18 +45,6 @@ Qual das seguintes alternativas melhor descreve o que o código faz?
 **Resposta:**
 A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.
 
-**Justificativa:**
-Para analisar a expressão booleana `(p % q === 1) && (r * 2 > p) || (q + r < p)`, vamos verificar cada parte:
-- `p % q === 1`: 10 % 3 = 1, portanto essa parte é `true`
-- `r * 2 > p`: 6 * 2 = 12, 12 > 10, portanto essa parte é `true`
-- `q + r < p`: 3 + 6 = 9, 9 < 10, portanto essa parte é `true`
-
-Considerando a ordem de avaliação de operadores lógicos (primeiro && e depois ||):
-- `true && true` resulta em `true`
-- `true || true` resulta em `true`
-
-Portanto, o código imprime `true`. Em seguida, o código executa um loop que multiplica todos os valores no array `[3, 6, 9, 12, 15]`, começando com um valor inicial de 1. O resultado dessa multiplicação é 3 * 6 * 9 * 12 * 15 = 29.160, que é impresso no console.
-
 ______
 
 **2)** O código a seguir contém duas funções que calculam o limite de crédito de um cliente com base nos seus gastos e na renda mensal.
@@ -113,14 +101,6 @@ Se ambas as funções forem executadas com os valores fornecidos, qual será a s
 **Resposta:**
 A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 400.'
 
-**Justificativa:**
-Ambas as funções têm o mesmo comportamento. Apesar de uma usa ```do...while``` e a outra usa ```while```. No entanto, os dois loops acabam fazendo os mesmos cálculos e gerando a mesma saída. 
-
-```javascript
-Seu crédito foi aprovado. Saldo disponível: 400.
-```
-Dessa forma a alternativa correta é a A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 400.'
-
 ______
 
 **3)** Considere o seguinte trecho de código em JavaScript:
@@ -140,10 +120,6 @@ Qual das seguintes alternativas melhor descreve o comportamento do código?
 
 **Resposta:**
 B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".
-
-**Justificativa:**
-O código utiliza estruturas condicionais (if, else if, else) para verificar a idade e exibir mensagens correspondentes. A primeira condição verifica se a idade está entre 18 e 59 anos. Se essa condição for verdadeira, exibe "Você é um adulto!". Caso essa condição seja falsa, verifica se a idade é menor que 18, e se for, exibe "Você é menor de idade!". Se nenhuma das condições anteriores for atendida (ou seja, se a idade for 60 ou mais), exibe "Você está na melhor idade!". Como no exemplo a idade é 21, o código exibirá "Você é um adulto!".
-
 
 ______
 
@@ -172,36 +148,7 @@ for (var i = 0; i < consumoDispositivos.length; i++) {
 
 Escolha a opção que responde corretamente:
 
-A)
-Dispositivo 1 ligado. Energia restante: 900
-
-Dispositivo 2 ligado com bateria extra. Energia restante: 700
-
-Dispositivo 3 ligado. Energia restante: 200
-
-Dispositivo 4 ligado com bateria extra. Energia restante: 0
-
-Dispositivo 5 ligado. Energia restante: -200
-
-B)
-Dispositivo 1 ligado. Energia restante: 900
-
-Dispositivo 2 ligado com bateria extra. Energia restante: 700
-
-Dispositivo 3 ligado. Energia restante: 200
-
-Dispositivo 4 não pode ser ligado. Energia insuficiente.
-
-Dispositivo 5 não pode ser ligado. Energia insuficiente.
-
-C)
-Dispositivo 1 ligado. Energia restante: 900
-
-Dispositivo 2 ligado com bateria extra. Energia restante: 700
-
-Dispositivo 3 ligado. Energia restante: 400
-
-Dispositivo 4 não pode ser ligado. Energia insuficiente.
+**Resposta:**
 
 D)
 Dispositivo 1 ligado. Energia restante: 900
@@ -220,26 +167,19 @@ ______
 
 Escolha a opção que melhor descreve seu propósito:
 
-A) O método update() é responsável por carregar os assets do jogo antes da cena ser exibida.
+**Resposta:**
 
 B) O método update() é chamado continuamente a cada quadro (frame) do jogo, sendo usado para atualizar a lógica, movimentação e interações dos objetos na cena.
 
-C) O método update() renderiza todos os sprites na tela e garante que a física do jogo seja processada corretamente.
-
-D) O método update() é chamado apenas uma vez após a criação da cena, sendo utilizado para configurar variáveis iniciais do jogo.
 ______
 
 **6)** Qual é o principal objetivo do módulo Matter.js Physics em Phaser.js?
 
 Escolha a opção que responde corretamente:
 
+**Resposta:**
+
 A) Simular física avançada, incluindo corpos rígidos, colisões complexas e interação entre objetos com gravidade e forças.
-
-B) Gerenciar eventos de entrada do usuário, como cliques e toques na tela, permitindo movimentação de personagens.
-
-C) Renderizar gráficos otimizados para jogos 2D e garantir uma taxa de quadros estável.
-
-D) Criar animações automáticas para sprites e objetos interativos sem necessidade de programação de movimentação.
 
 ______
 
@@ -256,6 +196,36 @@ Pedidos entre R$50,00 e R$199,99 (inclusive) → "Frete com custo adicional!"
 Pedidos de R$200,00 ou mais → "Frete grátis!"
 ```
 Implemente um pseudocódigo que receba o valor total da compra e exiba a classificação correta do frete para o cliente.
+
+
+**Resposta:**
+```
+// Função para classificar o frete com base no valor da compra
+função classificarFrete(valorCompra)
+    
+    // Verificação do valor da compra para determinar a categoria do frete
+    se valorCompra < 50.00 então
+        retornar "Frete não disponível!"
+    senão se valorCompra <= 199.99 então
+        retornar "Frete com custo adicional!"
+    senão
+        retornar "Frete grátis!"
+    fim se
+fim função
+
+// Programa principal
+Algoritmo ClassificacaoDeFrete
+    // Solicita o valor da compra ao usuário
+    Escrever("Digite o valor total da compra: ")
+    Ler(valorTotal)
+    
+    // Chama a função para classificar o frete
+    mensagemFrete = classificarFrete(valorTotal)
+    
+    // Exibe a classificação do frete
+    Escrever("Status do frete: ", mensagemFrete)
+Fim Algoritmo
+```
 ______
 
 **8)** Considere a implementação da classe base Veiculo em um sistema de modelagem de veículos. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Carro e Moto, que herdam da classe Veiculo, adicionando atributos específicos e métodos para calcular o consumo de combustível de um carro e de uma moto, respectivamente.
