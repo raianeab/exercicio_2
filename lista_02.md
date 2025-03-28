@@ -46,7 +46,6 @@ Qual das seguintes alternativas melhor descreve o que o código faz?
 A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.
 
 **Justificativa:**
-
 Para analisar a expressão booleana `(p % q === 1) && (r * 2 > p) || (q + r < p)`, vamos verificar cada parte:
 - `p % q === 1`: 10 % 3 = 1, portanto essa parte é `true`
 - `r * 2 > p`: 6 * 2 = 12, 12 > 10, portanto essa parte é `true`
@@ -56,6 +55,7 @@ Considerando a ordem de avaliação de operadores lógicos (primeiro && e depois
 - `true && true` resulta em `true`
 - `true || true` resulta em `true`
 
+Portanto, o código imprime `true`. Em seguida, o código executa um loop que multiplica todos os valores no array `[3, 6, 9, 12, 15]`, começando com um valor inicial de 1. O resultado dessa multiplicação é 3 * 6 * 9 * 12 * 15 = 29.160, que é impresso no console.
 
 ______
 
@@ -110,13 +110,17 @@ function analisarCredito2() {
 ```
 Se ambas as funções forem executadas com os valores fornecidos, qual será a saída exibida no console?
 
+**Resposta:**
 A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 400.'
 
-B) analisarCredito1() exibirá: 'Seu crédito foi negado. Saldo disponível: -600.', enquanto analisarCredito2() exibirá: 'Seu crédito foi negado. Saldo disponível: -200.'
+**Justificativa:**
+Ambas as funções têm o mesmo comportamento. Apesar de uma usa ```do...while``` e a outra usa ```while```. No entanto, os dois loops acabam fazendo os mesmos cálculos e gerando a mesma saída. 
 
-C) analisarCredito1() exibirá: 'Seu crédito foi negado. Saldo disponível: -200.', enquanto analisarCredito2() exibirá: 'Seu crédito foi aprovado. Saldo disponível: 100.'
+```javascript
+Seu crédito foi aprovado. Saldo disponível: 400.
+```
+Dessa forma a alternativa correta é a A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 400.'
 
-D) Ambas as funções exibirão: 'Seu crédito foi aprovado Saldo disponível: 500.'
 ______
 
 **3)** Considere o seguinte trecho de código em JavaScript:
@@ -134,13 +138,13 @@ if (idade >= 18 && idade < 60) {
 ```
 Qual das seguintes alternativas melhor descreve o comportamento do código?
 
-A) O código verifica se a idade indica um adulto ou um idoso e exibe a mensagem correspondente.
-
+**Resposta:**
 B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".
 
-C) O código verifica se a idade está entre 18 e 60 anos e, se for, imprime "Você é um adulto!". Se não estiver nesse intervalo, imprime "Você está na melhor idade!".
+**Justificativa:**
+O código utiliza estruturas condicionais (if, else if, else) para verificar a idade e exibir mensagens correspondentes. A primeira condição verifica se a idade está entre 18 e 59 anos. Se essa condição for verdadeira, exibe "Você é um adulto!". Caso essa condição seja falsa, verifica se a idade é menor que 18, e se for, exibe "Você é menor de idade!". Se nenhuma das condições anteriores for atendida (ou seja, se a idade for 60 ou mais), exibe "Você está na melhor idade!". Como no exemplo a idade é 21, o código exibirá "Você é um adulto!".
 
-D) O código verifica se a idade é menor de 18, entre 18 e 60 ou acima de 60, imprimindo uma mensagem específica para cada caso.
+
 ______
 
 **4)** Qual será o resultado impresso no console após a execução do seguinte código?
