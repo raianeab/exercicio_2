@@ -41,7 +41,20 @@ console.log("O produto dos valores é:", produto);
 ```
 Qual das seguintes alternativas melhor descreve o que o código faz?
 
+
+**Resposta:**
 A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.
+
+**Justificativa:**
+
+Para analisar a expressão booleana `(p % q === 1) && (r * 2 > p) || (q + r < p)`, vamos verificar cada parte:
+- `p % q === 1`: 10 % 3 = 1, portanto essa parte é `true`
+- `r * 2 > p`: 6 * 2 = 12, 12 > 10, portanto essa parte é `true`
+- `q + r < p`: 3 + 6 = 9, 9 < 10, portanto essa parte é `true`
+
+Considerando a ordem de avaliação de operadores lógicos (primeiro && e depois ||):
+- `true && true` resulta em `true`
+- `true || true` resulta em `true`
 
 
 ______
